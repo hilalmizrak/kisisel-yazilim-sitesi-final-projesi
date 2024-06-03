@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konferans Takvimi</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background: rgb(4, 49, 70);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    top: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 88%;
+    padding: 10px;
+    height: 40px;
+}
+
+.nav_links {
+    display: flex;
+}
+
+.nav_links li a {
+    margin-left: 15px;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.nav_links li a:hover {
+    background-color: #24caac;
+}
+
+.logo h2 a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.calendar {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.month {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.day:hover {
+    background-color: #f2f2f2;
+}
+
+.day.highlight {
+    background-color: #ffcc00;
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#konferansBasvuruFormu {
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #24caac;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #24caac;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1aa98f;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="#">Hilal Mızrak</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="index.html#anasayfa">Anasayfa</a></li>
+                <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                <li><a href="index.html#sertifikalarım">Sertifikalar</a></li>
+                <li><a href="index.html#basarilar">Başarılar</a></li>
+                <li><a href="index.html#hakkımda">Hakkımda</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+                <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+            </ul>
+           
+            
+        </div>
+    </header>
+<h1>Konferans Takvimi</h1>
+<div class="calendar">
+    <div class="controls">
+        <button onclick="prevMonth()">Önceki Ay</button>
+        <button onclick="nextMonth()">Sonraki Ay</button>
+    </div>
+    <div class="month" id="month">
+        
+    </div>
+    <div class="days" id="days">
+        
+    </div>
+</div>
+<form id="konferansBasvuruFormu">
+    <h2>Başvuru Formu</h2>
+    <div class="form-group">
+        <label for="ad">Ad:</label>
+        <input type="text" id="ad" name="ad" required>
+    </div>
+    <div class="form-group">
+        <label for="soyad">Soyad:</label>
+        <input type="text" id="soyad" name="soyad" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="telefon">Telefon:</label>
+        <input type="tel" id="telefon" name="telefon" required>
+    </div>
+    <div class="form-group">
+        <label for="konferansAdi">Konferans Adı:</label>
+        <input type="text" id="konferansAdi" name="konferansAdi" required>
+    </div>
+    <div class="form-group">
+        <label for="konferansYer">Konferans Yeri:</label>
+        <input type="text" id="konferansYer" name="konferansYer" required>
+    </div>
+    <div class="form-group">
+        <label for="katilimTuru">Katılım Türü:</label>
+        <select id="katilimTuru" name="katilimTuru" required>
+            <option value="">Seçiniz</option>
+            <option value="katılımcı">Katılımcı</option>
+            <option value="sunucu">Sunucu</option>
+            <option value="konferansYoneticisi">Konferans Yöneticisi</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sunumTuru">Sunum Türü:</label>
+        <select id="sunumTuru" name="sunumTuru" required>
+            <option value="">Seçiniz</option>
+            <option value="sunum">Sunum</option>
+            <option value="poster">Poster</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sunumBaslik">Sunum Başlığı:</label>
+        <input type="text" id="sunumBaslik" name="sunumBaslik" required>
+    </div>
+    <div class="form-group">
+        <label for="sunumAciklama">Sunum Açıklaması:</label>
+        <textarea id="sunumAciklama" name="sunumAciklama" required></textarea>
+    </div>
+    <button type="submit">Başvur</button>
+</form>
+
+<script src="script.js"></script>
+<script>
+const conferenceData = {
+    "2024-05-10": "İstanbul - Yapay Zeka Konferansı",
+    "2024-05-15": "Ankara - Veri Bilimi Konferansı",
+    "2024-05-20": "İzmir - Blockchain Konferansı",
+    "2024-06-05": "Adana - İş Zekası Konferansı",
+    "2024-06-10": "Gaziantep - Bulut Bilişim Konferansı",
+    "2024-06-15": "Muğla - Nesnelerin İnterneti Konferansı",
+    "2024-06-20": "İstanbul - Siber Güvenlik Konferansı",
+    "2024-06-25": "Antalya - Büyük Veri Konferansı",
+    "2024-07-14": "Kayseri - Veri Bilimi Konferansı",
+    "2024-07-19": "Konya - İş Zekası  Konferansı",
+    "2024-07-24": "Eskişehir - Siber Güvenlik Konferansı",
+    "2024-08-10": "Çorum - Blockchain Konferansı",
+    "2024-08-15": "Trabzon - Büyük Veri Konferansı",
+    "2024-08-20":  "Samsun - Nesnelerin İnterneti Konferansı",
+    "2024-08-29": "Rize - Bulut Bilişim Konferansı",
+    "2024-09-05":  "Kocaeli - Yapay Zeka Konferansı",
+    "2024-09-18": "Bursa - Blockchain Konferansı",
+};
+
+
+const highlightedDays = {
+    "2024-05": [
+        "2024-05-10",
+        "2024-05-15",
+        "2024-05-20"
+    ],
+    "2024-06": [
+        "2024-06-05",
+        "2024-06-10",
+        "2024-06-15",
+        "2024-06-20",
+        "2024-06-25"
+    ],
+    "2024-07": [
+        "2024-07-14",
+        "2024-07-19",
+        "2024-07-24"
+    ],
+    "2024-08": [
+       "2024-08-10",
+       "2024-08-15",
+       "2024-08-20",
+       "2024-08-29"
+    ],
+    "2024-09": [
+       "2024-09-05",
+       "2024-09-18"
+    ]
+};
+
+
+let currentYear = new Date().getFullYear();
+let currentMonth = new Date().getMonth();
+
+
+function updateControls() {
+    const monthElement = document.getElementById('month');
+    monthElement.textContent = `${getMonthName(currentMonth)} ${currentYear}`;
+}
+
+
+function getMonthName(monthIndex) {
+    const months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+    return months[monthIndex];
+}
+
+function createCalendar() {
+    const daysContainer = document.getElementById('days');
+    daysContainer.innerHTML = '';
+
+    const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+    for (let i = 1; i <= totalDays; i++) {
+        const dateStr = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
+        const day = document.createElement('div');
+        day.classList.add('day');
+        day.textContent = i;
+        
+        const monthKey = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}`;
+        if (highlightedDays[monthKey] && highlightedDays[monthKey].includes(dateStr)) {
+            day.classList.add('highlight');
+            day.title = conferenceData[dateStr];
+            day.addEventListener('click', () => {
+                alert(`Konferans: ${conferenceData[dateStr]}`);
+            });
+        }
+
+        daysContainer.appendChild(day);
+    }
+
+    updateControls();
+}
+function prevMonth() {
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+    createCalendar();
+}
+
+
+function nextMonth() {
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    createCalendar();
+}
+
+document.addEventListener('DOMContentLoaded', createCalendar);
+</script>
+<script>
+    document.getElementById("konferansBasvuruFormu").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        const ad = document.getElementById("ad").value;
+        const soyad = document.getElementById("soyad").value;
+        const email = document.getElementById("email").value;
+        const telefon = document.getElementById("telefon").value;
+        const konferansAdi = document.getElementById("konferansAdi").value;
+        const konferansYer = document.getElementById("konferansYer").value;
+        const katilimTuru = document.getElementById("katilimTuru").value;
+        const sunumTuru = document.getElementById("sunumTuru").value;
+        const sunumBaslik = document.getElementById("sunumBaslik").value;
+        const sunumAciklama = document.getElementById("sunumAciklama").value;
+    
+        const formData = {
+            ad,
+            soyad,
+            email,
+            telefon,
+            konferansAdi,
+            konferansYer,
+            katilimTuru,
+            sunumTuru,
+            sunumBaslik,
+            sunumAciklama
+        };
+    
+        console.log(formData);
+    });
+</script>
+<script>
+    document.getElementById("konferansBasvuruFormu").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        const ad = document.getElementById("ad").value;
+        const soyad = document.getElementById("soyad").value;
+        const email = document.getElementById("email").value;
+        const telefon = document.getElementById("telefon").value;
+        const konferansAdi = document.getElementById("konferansAdi").value;
+        const konferansYer = document.getElementById("konferansYer").value;
+        const katilimTuru = document.getElementById("katilimTuru").value;
+        const sunumTuru = document.getElementById("sunumTuru").value;
+        const sunumBaslik = document.getElementById("sunumBaslik").value;
+        const sunumAciklama = document.getElementById("sunumAciklama").value;
+    
+        const formData = {
+            ad,
+            soyad,
+            email,
+            telefon,
+            konferansAdi,
+            konferansYer,
+            katilimTuru,
+            sunumTuru,
+            sunumBaslik,
+            sunumAciklama
+        };
+        const siraNumarasi = Math.floor(Math.random() * 1000) + 1; 
+        console.log("Başvuru bilgileri:", formData);
+        console.log("Sıra numarası:", siraNumarasi);
+        alert(`Başvurunuz alınmıştır. Sıra numaranız: ${siraNumarasi}`);
+    });
+    
+</script>
+
+</body>
+</html>

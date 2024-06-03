@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Sayfası</title>
+</head>
+
+<style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+html {
+    scroll-behavior: smooth;
+}
+header {
+    background: rgb(4, 49, 70);
+    border-bottom: 1px solid rgba(red, green, blue, alpha);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 88%;
+    padding: 10px 0;
+    height: 50px;
+}
+
+.nav_links {
+    display: flex;
+}
+
+.nav_links li a {
+    margin-left: 15px;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+
+.nav_links li a:hover {
+    background-color: #24caac;
+}
+
+.logo h2 a {
+    color: #fff;
+    text-transform: uppercase;
+}
+.notification-box img {
+    max-width: 30px;
+    max-height: 30px;
+    
+}
+.notification-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px; 
+    margin-top: 10px; 
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; 
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notificationCount{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notification-box img {
+    width: 30px; 
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    cursor: pointer;
+    max-width: 40px; 
+    max-height: 40px;
+}
+
+.notification-box .notification-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+}
+
+.notification-box:hover .notification-content {
+    display: block;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #333;
+    margin: 0;
+    padding: 1rem 0;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    text-align: justify;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    text-align: left;
+}
+
+ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+footer {
+    background: #122e44;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.inner_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.child_footer {
+    flex-basis: 23%;
+}
+
+.child_footer h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.child_footer h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.child_footer ul {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 50%;
+}
+
+.child_footer ul li {
+    color: rgb(252, 251, 244);
+}
+
+.quick_links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+    color: #122e44;
+}
+
+.quick_links li {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+.footer_contact {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer_contact li {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+.footer_contact i {
+    margin-right: 10px;
+}
+
+.footer_contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.footer_contact form input,
+.footer_contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #242920;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.footer_contact form input::placeholder,
+.footer_contact form textarea::placeholder {
+    color: #fff;
+}
+
+.footer_contact form input[type="submit"] {
+    background: #24caac;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease; 
+}
+
+.footer_contact form input[type="submit"]:hover {
+    background: transparent;
+    color: #24caac;
+    border: 1px solid #24caac;
+}
+
+@media (max-width: 768px) {
+    .inner_footer {
+        flex-direction: column;
+    }
+
+    .child_footer {
+        margin-bottom: 30px;
+    }
+
+    .child_footer:last-child {
+        margin-bottom: 0;
+    }
+
+    .quick_links li,
+    .footer_contact li {
+        flex-basis: 100%;
+    }
+}
+footer .child_footer {
+            background: #122e44;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px; 
+}
+        footer .child_footer a {
+            color: #24caac;
+        }
+
+
+        </style>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="#">Hilal Mızrak</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="index.html#anasayfa">Anasayfa</a></li>
+                <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                <li><a href="index.html#sertifikalarım">Sertifikalar</a></li>
+                <li><a href="index.html#basarilar">Başarılar</a></li>
+                <li><a href="index.html#hakkımda">Hakkımda</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+                <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+            </ul>
+           
+            
+        </div>
+    </header>
+    <div class="container">
+         <h1>C++</h1>
+        <p>C++ ile hızlı ve güvenilir yazılımlar geliştirebilirim.</p>
+        <div class="header-content">
+            <img src="img/c++.jpg" alt="">
+            <h2>C++ Nedir? </h2>
+            <p>İşlevine göre özel bir dile sahip olan programlar, belirli komutlarla bilgisayar donanımlarının yürütülmesini sağlar. İçerisinde Java ve PHP dillerinin yer aldığı programlama dili çeşitleri arasında bulunan sınıflı C dili, B dilinden geliştirilir. </p>
+            <p>C++ nedir diye soran ve öğrenmek isteyenler için programlama dilini yakından incelemek gerekiyor. C++ temelde yüksek seviyede nesnel yönelimli olmasıyla ön plana çıkıyor. Yapay zekalı uygulamalardan video oyunlarının hazırlanmasına kadar birçok alanda C++ programlama dili kullanılıyor. C tabanlı program dilleri içinde C++ işlevselliğini, kullanıcı performansı bakımından çoğunlukla programcıdan alır. </p>
+            <p>C++ neden öğrenilmeli diye kısaca bahsetmek gerekirse; programcıların farklı alanlarda ve projelerde çalışabilmesini mümkün kılıyor. Tarihte Bell Labs bünyesinde 1979’da geliştirilen C++ aynı zamanda C program dili için eklenti görevi görüyor. Çok amaçlı yazılımlardan birisi olarak C++ diğer yandan manuel olarak hafıza yönetimi yapmayı gerektiriyor. Esnek program dillerinden olmasıyla sıklıkla tercih edilen C++ yazılımları geliştirmek için bazı avantajlar da barındırıyor. C++ programlama dilinin işlev ve avantajlarından etkili bir şekilde yararlanabilmek için program diline hakim olmak önem taşıyor. </p>
+            <p>C++ ile ne yapılır merak edenler için seçenekler güvenlik programlarından oyunlara kadar uzanıyor. Belirli alanlarda başarılı programlara imza atmak isteyenlere C++ güncel ve etkili bir alternatif oluşturuyor. Genellikle yazılım alanında kendini geliştirmeyi, kariyerini bilişim sektöründe ilerletmeyi veya çeşitli projelerde yer almayı hedefleyenler C++ öğrenmeli.</p>
+            <img src="img/msg-intellisense.png" alt="">
+            <h2>C++ Nerelerde Kullanılır?</h2>
+            <p>Geçmişte sınıflı C olarak tanımlanan C++, dünya çapında tercih edilen popüler programlama dillerinden biri. Değişen programlama paradigmaları içinde bulunan C++, jenerik ve nesnel tabanlı bir dil barındırıyor. C++ nerelerde kullanılır sorusunun cevabı, yazılım geliştiricilerin programlama ihtiyaçları ile beraber değişiyor. Temelde C++ programlama dili sistem yazılımlarının yanı sıra gömülü, sürücü veya kullanıcı taraflı yazılımlarda da kullanılıyor. Yeni veri gruplarının yaratılması, var olan gruplardan yeni türlerin oluşturulmasında C++ tercih ediliyor. Programcılar, bilişim sektörüyle bağlantı faaliyetlerin yürütüldüğü her alanda C++ kullanarak pek çok yazılım hazırlayabiliyor. Veri girişini, akışını ve sınıflandırmasını kapsayan çeşitli yazılım işlerinde bir programcı olarak C++ diline yer verebilirsin. </p>
+            <p>C++ programlama dilinin sıklıkla tercih edildiği alanlar aşağıdaki gibi sıralanıyor:</p>
+            <ul>
+                <li><strong>Bilgisayar Oyunları Geliştirme:</strong> Çoğu sevilen video oyunu programında C++ dili kullanılıyor ve genellikle programın motor bölümünde işlev sergiliyor. Motorun yanında C++ oyunun grafik kütüphaneleri için pratik şekilde kod oluşturulmasını sağlıyor.</li>
+                <li><strong>Yapay Zeka Uygulamaları:</strong> Ses ve görüntü tanımlamaktan derin öğrenme ve veri görselleştirmeye dek birçok işlem yapay zeka sistemleriyle gerçekleştiriliyor. C++ programlama dili, yapay zeka sistemlerindeki donanım ve yazılıma hızlı bir biçimde müdahale etmeye imkan tanıyor.</li>
+                <li><strong>Simülasyon İçerikli Uygulamalar:</strong> Birçok kod oluşturucu sistem ile birlikte simülasyon içeriklerinde otomatik olarak C++ desteğiyle dönüştürme ve sınıflandırma kodları üretilebiliyor.</li>
+                <li><strong>Görüntü ve Ses İşleme:</strong> Belirlenen arayüz programlarıyla beraber C++ yazılım kodlarından yararlanarak görüntü işleme komutları oluşturmak mümkün.</li>
+                <li><strong>Antivirüs Programları:</strong> Çeşitli teknolojik cihazlar için antivirüs koruma programlarını hazırlama aşamasında C++ diline yaygın şekilde başvuruluyor. C++ kodları sayesinde antivirüs koruma programları için etkili bir arayüz yaratılıyor.</li>
+                <li><strong>Veri Sınıflandırma Sistemleri:</strong> Oldukça çok sayıda verilerin özelliklerine göre istenen şekilde rahatça kategorize edilmesi için de C++ kullanılıyor.</li>
+                <li><strong>C++ öğrenmek, farklı alanlarda çalışabilmek için program uzantıları ile işlem aşamalarını bilmek gerekiyor. Ağırlıklı olarak System Files altında kategorize edilen C++ dosyalarının belli uzantıları bulunuyor. C++ uzantısı nedir sorusu için “.cpp”, “.h”, “.C” ve “.cc” uzantıları en çok rastlanan varyasyonlar arasında.</strong></li>
+            </ul>
+            <img src="img/Structure-of-C-Program-(1).png" alt="">
+            <h2>C++ Sunduğu Avantajlar Nelerdir?</h2>
+            <p>Programlamaya başlarken C++ ne demek ve C++ nasıl yazılır öğrenmek, donanımlarla arayüzleri hazırlarken büyük önem taşıyor. C++, nesnel olarak genel amaçlara hizmet eden çok yönlü bir program dili olma özellikleri ile öne çıkıyor. Bu nesnel yönelimli program ile çalışmayı düşünenler öncelikle C++ nasıl yazılır öğrenmelidir. Örnek olarak C++ kullanarak “Hello World” yazısı şu şekilde yazdırılabilir;</p>
+           <p>Diğer yandan C++ ne işe yarar konusu, özellikle yazılımcılar ve programlama alanına ilgi duyanlar tarafından sıklıkla merak ediliyor. Profesyonel, işlevsel ve hızlı kodlar hazırlamak isteyenlere yönelik C++ dili, altyapı ve arayüz konusunda etkili çözümler sunuyor. Başlıca hedefi verilerin işlenmesi ve sınıflandırılması olan programlamalarda, dili gereği C++ programcılara farklı kolaylıklar sağlıyor:</p>
+           <img src="img/c++ö.png" alt="">
+           <ul>
+            <li><strong>Nesnel Tabanlı Olması:</strong> Programcı odaklı C++ dili ile OOP olarak da bilinen nesnel yönelimli programlamalar kolayca gerçekleştiriliyor. Nesnelerin özelliklerine göre doğru biçimde sınıflandırılmasını mümkün kılan ve kodu sık tekrarlarla kullanılabilen C++ güvenilirliği arttırıyor.</li>
+            <li><strong>Taşınabilir Olması:</strong> C+, C ve Java programlama dillerine yakınlığı sayesinde C++, bir programcı için dil değişimlerinde hızlı bir adaptasyon yaratıyor. Bununla birlikte C++ dili Windows veya Linux gibi birçok ayrı işletim sistemi ve platforma entegre edilebiliyor.</li>
+            <li><strong>Çoklu Paradigma:</strong> C++ program stili bakımından jenerik, nesnel yönelimli ve zorunlu programlama paradigmalarına sahip. Mevcut programlama sistemleri genelinde C++ programcılara özel ve yeni bir program dili yaratma fırsatı da veriyor.</li>
+            <li><strong>Alt Seviye Programlaması:</strong> Sınıflı C dili aynı zamanda C programlama dilini kapsayarak alt seviyede bir veri işlemi gerçekleştirmeye imkan tanıyor. Veri manipülasyonları ve gömülü sistemler, C++ desteği ile programcılar tarafından oluşturuluyor.</li>
+        </ul>
+        <img src="img/select-gcc-compiler.png" alt="">
+        <h2>C++ Sunduğu Dezavantajlar Nelerdir?</h2>
+        <p>C++ ile çalışmak isteyenlerin çalışma alanına bağlı olarak diğer programlama dillerine aşina olması önerilir. C++ öncesinde, c+ nedir kısaca açıklamak gerekirse; C ile C++ arasında kalan bir programlama dilidir. Çoğunlukla C programlama dilleri içerisinde C++ yaygın şekilde çeşitli yazılımları geliştirirken tercih ediliyor. Dünya genelinde C++ kütüphaneleri de programcılara öğrenim ve uygulama süreçleri boyunca destek sağlıyor. Tüm programlama dilleri arasında C++, hem modern hem de gelişmeye devam eden bir dil olarak programcıları karşılıyor. C++ nedir ne işe yarar hakkında kapsamlı bilgi sahibi olabilmek için programın avantajları kadar dezavantajlarını da incelemek gerekiyor. Yazılım ve sistemleri geliştirmede kullanılan program dili açısından avantajlarına ek olarak C++ dezavantajları şu şekilde özetlenebilir:</p>
+        <ul>
+            <li><strong>Güvenlik Problemleri:</strong> Nesnel yönelimli programlama dili veri güvenliğine rağmen bazı işaretçilerin kullanımı ve global değişkenler açısından güvenlik problemleri yaratabilir. C++ dili programcının bilgisi doğrultusunda işlenir ve gelişirken, gerekli noktalarda sistemsel aksaklıklar ortaya çıkar.</li>
+            <li><strong>Hafıza Erişimi ve Bellek Yönetimi:</strong> C++ programlama dili, yazılımcılara direkt hafıza erişim özelliğiyle cihaz belleğini tam denetleme yetkisi veriyor. Ancak, yazılımdaki gereksiz verilerin otomatik filtrelenmesi özelliğinden yoksun olarak bu işlemin manuel yapılmasını gerektiriyor.</li>
+            <li><strong>Thread Desteği:</strong> Yazılımda yeni kavramlardan thread, iş parçacıkları olarak programda aynı anda birçok işin yapılmasını sağlar. C++ ise yerleşik thread desteğinden yoksun olmakla birlikte lambda fonksiyonlarını güncel şekilde destekleyebilir durumdadır.</li>
+            <li><strong>Karmaşıklık:</strong> C++ programlama dili esnek ve geniş yapısı itibarıyla yazılım öğrenenler için karmaşık görünebilir. Pek çok kod satırına sahip C++ üzerinde iç içe işlem yapılmak istendiğinde uzantıları kullanmak önemli.</li>
+            <li><strong>Bellek Yönetimi ve Performans:</strong> Büyük ölçekli projelerde çalışırken programda kullanılan işaretçiler, bellek üzerinde önemli ölçüde yer kaplayabilir. Bellek yönetimine göre bu işaretçiler, sistemi yavaşlatabilir.</li>
+        </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="inner_footer">
+            <div class="child_footer">
+                <h3>Hakkımda</h3>
+                <h4>Kayseri Üniversitesi Bilgisayar Programcılığı Mezunuyum</h4>
+                <ul class="child_footer">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Linkler</h3>
+                <ul class="quick_links">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                    <li><a href="index.html#sertifikalarım">Sertifikalarım</a></li>
+                    <li><a href="index.html#basarilar">Başarılar</a></li>
+                    <li><a href="index.html#iletisim">İletişim</a></li>
+                    <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>İletişim</h3>
+                <ul class="footer_contact">
+                    <li><i class="fas fa-map-marked-alt"></i> Kayseri, Melikgazi</li>
+                    <li><i class="fas fa-phone"></i>                 <li><i class="fas fa-phone"></i> 05555555555</li>
+                </li>
+                    <li><i class="fas fa-envelope"></i> 223010710064@kayseri.edu.tr</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/hilalmizrak">GitHub</a></li>
+                    
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Haberler Hızlı Ulaştı</h3>
+                <ul class="footer_contact">
+                    <form action="#">
+                        <input type="email" placeholder="Email">
+                        <input type="submit" value="Gönder">
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.footer_contact form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                window.location.href = 'index.html#iletisim'; 
+            });
+        });
+    </script>
+     
+    
+</body>
+</html>

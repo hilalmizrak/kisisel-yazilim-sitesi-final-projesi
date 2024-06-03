@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Page</title>
+    <style>
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+        html {
+            scroll-behavior: smooth;
+        }
+        header {
+    background: rgb(4, 49, 70);
+    border-bottom: 1px solid rgba(red, green, blue, alpha);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 88%;
+    padding: 10px 0;
+    height: 50px;
+}
+
+.nav_links {
+    display: flex;
+}
+
+.nav_links li a {
+    margin-left: 15px;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.nav_links li a:hover {
+    background-color: #24caac;
+}
+.notification-box img {
+    max-width: 30px;
+    max-height: 30px;
+    
+}
+.notification-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px; 
+    margin-top: 10px; 
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; 
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notificationCount{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notification-box img {
+    width: 30px; 
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    cursor: pointer;
+    max-width: 40px; 
+    max-height: 40px;
+}
+
+.notification-box .notification-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+}
+
+.notification-box:hover .notification-content {
+    display: block;
+}
+
+
+.logo h2 a {
+    color: #fff;
+    text-transform: uppercase;
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin: 0;
+            padding: 1rem 0;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            text-align: justify;
+            padding: 0 2rem;
+            margin: 1rem 0;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+    max-width: 800px; 
+    width: 90%; 
+    text-align: left; 
+}
+        ul {
+            text-align: left;
+            padding-left: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li {
+            margin-bottom: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin-bottom: 50px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+footer {
+    background: #122e44;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.inner_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.child_footer {
+    flex-basis: 23%;
+}
+
+.child_footer h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.child_footer h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.child_footer ul {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 50%;
+}
+
+.child_footer ul li {
+    color: rgb(252, 251, 244);
+}
+
+.quick_links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+    color: #122e44;
+}
+
+.quick_links li {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+.footer_contact {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer_contact li {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+.footer_contact i {
+    margin-right: 10px;
+}
+
+.footer_contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.footer_contact form input,
+.footer_contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #242920;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.footer_contact form input::placeholder,
+.footer_contact form textarea::placeholder {
+    color: #fff;
+}
+
+.footer_contact form input[type="submit"] {
+    background: #24caac;
+    color: #fff;
+    cursor: pointer;
+    transition: all.3s ease;
+}
+
+.footer_contact form input[type="submit"]:hover {
+    background: transparent;
+    color: #24caac;
+    border: 1px solid #24caac;
+}
+
+@media (max-width: 768px) {
+    .inner_footer {
+        flex-direction: column;
+    }
+
+    .child_footer {
+        margin-bottom: 30px;
+        color: #122e44;
+    }
+
+    .child_footer:last-child {
+        margin-bottom: 0;
+    }
+
+    .quick_links li,
+    .footer_contact li {
+        flex-basis: 100%;
+    }
+    
+}
+footer .child_footer {
+            background: #122e44;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px; 
+}
+        footer .child_footer a {
+            color: #24caac;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="#">Hilal Mızrak</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="index.html#anasayfa">Anasayfa</a></li>
+                <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                <li><a href="index.html#sertifikalarım">Sertifikalar</a></li>
+                <li><a href="index.html#basarilar">Başarılar</a></li>
+                <li><a href="index.html#hakkımda">Hakkımda</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+                <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+            </ul>
+        </div>
+        
+    </header>
+   
+    <div class="container">
+        <h1>JavaScript</h1>
+        <p>Web sitelerinin olmazsa olmazı olan JAVASCRİPT'i her projenizde kullanarak efektif siteler üretiyorum</p>
+        <div class="header-content">
+            <img src="img/javascript-nedir.jpg" alt="javascript-nedir.jpg">
+            <p>Javascript, web programlama alanında yaygın olarak kullanılan dinamik bir programlama dilidir. Etkileşimli ve dinamik web sayfaları geliştirmeye yardımcı olan Javascript, isminden dolayı Java ileri karıştırılsa da aslında ikisi de birbirinden farklı teknolojilerdir.</p>
+            <h2>Javascript dili ile neler yapılabilir?</h2>
+            <p>HTML kaynak kodlarına Javascript ile müdahale edilebilir, form gönderme yapılabilir, ziyaretçiye mesaj verilebilir. Kısaca açıklamak gerekirse Javascript dili ile internet siteleri dinamik bir yapıya kavuşabilir. Web sayfalarında bulunan HTML’in durağan halini daha etkileşimli bir yapıya getirerek, kullanıcı için daha pratik yöntemler uygular.</p>
+            <h2>Javascript nasıl kullanılır?</h2>
+            <p>Javascript dili “.js” uzantısı olarak kaydedilir.  Javascript dilini HTML dosyası içinde kullanabiliriz. Javascript kodlarınızı web sitenize eklemek istiyorsanız tıpkı CSS çağırır gibi Javascript dosyanızı da çağırabilirsiniz.</p>
+            <p>Ancak size önerimiz Javascript kodlarınızı HTML dosyası içinde kullanmak yerine harici bir dosyadan çağırmanızdır. Çünkü arama motorları HTML dosyalarının hızlı olması ve gereksiz kodların bulunmamasını ister. Harici dosyadan çağırarak arama motorlarına sitenizi sevdirebilirsiniz.</p>
+            <h2>JavaScript geliştiricileri hangi araçları kullanıyor?</h2>
+            <p>StackOverFlow adresindeki verilere dayanarak yapılan bir analiz ile JavaScript geliştiricilerinin hangi araçları kullandığı, hangi teknolojilerden yararlandığı öğrenildi.</p>
+            <p>Günümüzde bazı zamanlarda düşüş yaşasa da, hâlâ dünyanın en popüler programlama dili olma ünvanını taşıyan JavaScript hakkında bir analiz yapıldı. 90 bin geliştirici StackOverFlow adresinde yapılan ankete katıldı ve JavaScript geliştiricilerinin cevapları alındı.</p>
+            <p>Geliştiriciler, JavaScript dilinin hem web üzerinde hem yerel platformlarda hem de back-end teknolojilerde çalışabilen full stack bir dil olduğunu söylüyorlar. Node.js’in sunucu bazında çalışmasıyla birlikte back-end geliştiricilerin sayısı da artış gösteriyor.</p>
+            <p>JavaScript dilinin çok sayıda framework’e sahip olması, bu programlama dilinin çok yönlülüğünü artırıyor. JavaScript ile mobil uygulama geliştirmek için React Native framework’üne ihtiyaç duyarken, masaüstü uygulama geliştirmek için Electron framework’üne ihtiyaç duyarız. Programlama dilinin çok yönlülüğü, bu dil üzerinde uzmanlaşmış geliştiricileri birçok alanda ön plana çıkarmaktadır.</p>
+            <img src="img/visual-studio-code.png" alt="visual-studio-code.png">
+            <h2>En çok kullanılan editör</h2>
+            <p>JavaScript geliştiricilerine yapılan ankette en çok hangi framework’ü tercih ettikleri sorulmuş. Tahmin etmesi zor olmayan jQuery en çok tercih edilen framework olmuş. Listenin ikinci sırasında React.js yer alırken onu Angular.js  üçüncü sırada takip etmiş.</p>
+            <h2>En çok kullanılan editör</h2>
+            <p>StackOverFlow üzerinden yapılan ankette geliştiricilerin JavaScript programlama dilini kullanırken hangi IDE ve editörleri kullandıkları merak edilmiş. Listenin ilk sırasında Visual Studio Code açık ara farkla yer alıyor. İknici sırada Visual Code yer alırken onu Notepad++ yakından takip ediyor.</p>
+            <h2>En popüler veritabanı</h2>
+            <p>JavaScript geliştiricilerinin popüler veritabanlarına gelince MySQL bu alanda açık ara birinciliğini koruyor. PostgreSQL ikinci sırada yer alırken, Microsoft SQL Server ise üçüncü sıradan listeye girmiş durumda. Dördüncü sırayı SQLite doldururken, belge tabanı paylaşımlı veritabanı MongoDB ilk dörtte kendine yer bulamamış ve beşinci sırada bulunuyor.</p>
+            <h2>Tercih ettikleri işletim sistemi</h2>
+            <p>Anketin en çok merak edilen sorularından bir tanesi de bu soru. JavaScript geliştiricilerine çalışırken hangi işletim sistemini kullandıkları sorulmuş. JavaScript geliştiricileri bu soruya Linux işletim sistemi olarak cevap vermişler. Linux bu listede ilk sıradan yer alırken, ikinci sırada onu takip eden Windows oluyor. Üçüncü ve dördüncü sırada ise sırasıyla Docker ve AWS yer alıyor.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="inner_footer">
+            <div class="child_footer">
+                <h3>Hakkımda</h3>
+                <h4>Kayseri Üniversitesi Bilgisayar Programcılığı Mezunuyum</h4>
+                <ul class="child_footer">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Linkler</h3>
+                <ul class="quick_links">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                    <li><a href="index.html#sertifikalarım">Sertifikalarım</a></li>
+                    <li><a href="index.html#basarilar">Başarılar</a></li>
+                    <li><a href="index.html#iletisim">İletişim</a></li>
+                    <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>İletişim</h3>
+                <ul class="footer_contact">
+                    <li><i class="fas fa-map-marked-alt"></i> Kayseri, Melikgazi</li>
+                    <li><i class="fas fa-phone"></i>                 <li><i class="fas fa-phone"></i> 05555555555</li>
+                </li>
+                    <li><i class="fas fa-envelope"></i> 223010710064@kayseri.edu.tr</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/hilalmizrak">GitHub</a></li>
+                    
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Haberler Hızlı Ulaştı</h3>
+                <ul class="footer_contact">
+                    <form action="#">
+                        <input type="email" placeholder="Email">
+                        <input type="submit" value="Gönder">
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.footer_contact form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                window.location.href = 'index.html#iletisim';
+            });
+        });
+    </script>
+    </body>
+</html>

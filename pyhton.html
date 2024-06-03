@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href = "https: //fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="myscript.js"></script>
+    <link rel="stylesheet" href="myscript.js">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Python Page</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        header {
+    background: rgb(4, 49, 70);
+    border-bottom: 1px solid rgba(red, green, blue, alpha);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 88%;
+    padding: 10px 0;
+    height: 50px;
+}
+
+.nav_links {
+    display: flex;
+}
+
+.nav_links li a {
+    margin-left: 15px;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.nav_links li a:hover {
+    background-color: #24caac;
+}
+.notification-box img {
+    max-width: 30px;
+    max-height: 30px;
+    
+}
+.notification-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px; 
+    margin-top: 10px; 
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; 
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notificationCount{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notification-box img {
+    width: 30px; 
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    cursor: pointer;
+    max-width: 40px; 
+    max-height: 40px;
+}
+
+.notification-box .notification-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+}
+
+.notification-box:hover .notification-content {
+    display: block;
+}
+.logo h2 a {
+    color: #fff;
+    text-transform: uppercase;
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin: 0;
+            padding: 1rem 0;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            text-align: justify;
+            padding: 0 2rem;
+            margin: 1rem 0;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+    max-width: 800px;
+    width: 90%; 
+    text-align: left;
+}
+        ul {
+            text-align: left;
+            padding-left: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li {
+            margin-bottom: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin-bottom: 50px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 20px;
+            }
+        }
+footer {
+    background: #122e44;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.inner_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.child_footer {
+    flex-basis: 23%;
+}
+
+.child_footer h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.child_footer h4{
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.child_footer ul {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 50%;
+}
+
+.child_footer ul li {
+    color: rgb(252, 251, 244);
+}
+
+.quick_links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+    color: #122e44;
+}
+
+.quick_links li {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+.footer_contact {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer_contact li {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+.footer_contact i {
+    margin-right: 10px;
+}
+
+.footer_contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.footer_contact form input,
+.footer_contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #242920;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.footer_contact form input::placeholder,
+.footer_contact form textarea::placeholder {
+    color: #fff;
+}
+
+.footer_contact form input[type="submit"] {
+    background: #24caac;
+    color: #fff;
+    cursor: pointer;
+    transition: all.3s ease;
+}
+
+.footer_contact form input[type="submit"]:hover {
+    background: transparent;
+    color: #24caac;
+    border: 1px solid #24caac;
+}
+
+@media (max-width: 768px) {
+   .inner_footer {
+        flex-direction: column;
+    }
+
+   .child_footer {
+        margin-bottom: 30px;
+    }
+
+   .child_footer:last-child {
+        margin-bottom: 0;
+    }
+
+   .quick_links li,
+   .footer_contact li {
+        flex-basis: 100%;
+    }
+}
+footer .child_footer {
+            background: #122e44;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px; 
+}
+        footer .child_footer a {
+            color: #24caac;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="#">Hilal Mızrak</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="index.html#anasayfa">Anasayfa</a></li>
+                <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                <li><a href="index.html#sertifikalarım">Sertifikalar</a></li>
+                <li><a href="index.html#basarilar">Başarılar</a></li>
+                <li><a href="indez.html#hakkımda">Hakkımda</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+                <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+            </ul>
+        </div>
+        
+    </header>
+    <h1>Python</h1>
+    <div class="container">
+    <p>Tüm masaüstü yazılımlar ve zor işlerinizi pratiğe dökmeniz için Python'ın gücünden yararlanıyorum</p>
+    <div class="header-content">
+        <img src="img/python-nedir.jpg" alt="Python Nedir">
+    <p>1991 yılında Guido van Rossum tarafından geliştirmeye başlanan Python; interaktif, nesne odaklı, yorumlanabilir ve öğrenmesi oldukça kolay bir programlama dilidir. Günümüzde ortaya çıkan birçok hizmette önemli yer tutuyor.</p>
+    <h2>Python ne işe yarar?</h2>
+    <p>Python dilini web programlama, mobil programlama, masaüstü programlama gibi aklınıza gelebilecek hemen hemen tüm alanlarda kullanabilirsiniz. Bu kadar çok seçenek sunmasının yanında Python dili, diğer programlama dillerine nazaran çok daha basit bir söz dizimi vardır. Ancak bu durum sizi yanıltmasın ki Python birçok projenin üstesinden gelebilecek düzeyde bir programlama dilidir.</p>
+    <h2>Python Özellikleri Nelerdir?</h2>
+    <p>Python sözdizimi anlaşılır ve düzenli olacak şekilde tasarlanmıştır. Örneğin, bu programlama dilinin bir dizi dikkate değer özelliği vardır:</p>
+    <ul>
+        <li>
+            <strong>Girinti:</strong> Kod bloklarını belirtmek için parantez veya diğer belirli karakterleri kullanan diğer programlama dillerinden farklı olarak Python, kodun yapısını belirtmek için girinti kullanır.
+        </li>
+        <li>
+            <strong>Boş satırlar ve yorumlar:</strong> Python programlama dili, kodun okunmasını kolaylaştırmak ve kodda neler olduğunu açıklamak için boş satırlar ve yorumlar kullanır.
+        </li>
+        <li>
+            <strong>Basit sözdizimi:</strong> Python'un basit ve mantıklı bir sözdizimi vardır, bu da fazla programlama deneyimi olmayanlar için bile dile başlamayı kolaylaştırır.
+        </li>
+        <li>
+            <strong>Dinamik tür sınıflandırması:</strong> Veri türlerinin kullanılmadan önce tanımlanması gereken diğer birçok programlama dilinden farklı olarak çalışma zamanında değişkenlere atanan değerlere göre veri türlerini otomatik olarak belirler.
+        </li>
+        <li>
+            <strong>İşlevler ve modüller:</strong> Python, işlevlerin ve modüllerin konseptini destekleyerek kodun yeniden kullanılmasına ve projelerin daha net bir şekilde düzenlenmesine olanak tanır.
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <strong>Prosedür Tabanlı ve Fonksiyonel Programlama:</strong> Her ne kadar nesne yönelimli bir dil olsa da Python, prosedür tabanlı programlama ve günümüzün popüler programlama tekniği fonksiyonel programlama metotlarını da destekler.
+        </li>
+        <li>
+            <strong>Ara Kod Derleme:</strong> Her ne kadar bir betik dili olarak kullanılabilse de Python, büyük uygulamalar için ara bir koda derlenebilir. Bu sayede daha hızlı çalışan bir kod elde edilebilir.
+        </li>
+        <li>
+            <strong>Otomatik Çöp Toplama (Garbage Collection) Desteği:</strong> Python, otomatik çöp toplama (garbage collection) özelliğini destekler.
+        </li>
+        <li>
+            <strong>Yüksek Seviyeli Dinamik Veri Tipleri ve Tip Kontrolü:</strong> Python çok yüksek seviyeli dinamik veri tipleri sağlar ve dinamik tip kontrolünü destekler.
+        </li>
+        <li>
+            <strong>Entegrasyon Yeteneği:</strong> Python, C, C ++, COM, ActiveX, CORBA ve Java ile kolayca entegre edilebilir.
+        </li>
+    </ul>
+    <img src="img/python-first-app.jpg" alt="python-first-app.jpg">
+    <h2>Python ile neler yapılır?</h2>
+    <p>Python dili sizlere birçok imkan sunar. Örneğin, Python ile yapay zeka üzerine yazılımlar geliştirebilirsiniz. Bunun yanında dil size şifre kırma programları yapma olanağı da sunar. Şifreleme ve şifre çözme uygulamaları oluşturabilirsiniz. Python’ın OpenCv kütüphanesini kullanarak yüz tanıma (Face ID) yazılımları geliştirebilirsiniz. Programlama dilinin yapay zeka algoritmalarından faydalanarak kendi oyunlarınızı yazabilirsiniz. Python ile tarayıcı üzerinde çalışabilecek web yazılımları da geliştirebilirsiniz.</p>
+    <h2>Python dilini neden öğrenmeliyim?</h2>
+    <p>Eski dönemlerde programlama öğrenmek isteyenler karşılarına çıkan diller oldukça karmaşık bir yapıya sahipti. Gün geçtikçe yeni programlama dilleri ortaya çıktı ve yazılım kavramı dünyada çok daha yaygın bir hâl aldı. Python dili bunların arasında dikkat çeken bir programlama dili oldu.</p>
+    <p>Eğer programlama dili öğrenmeye yeni başlıyorsanız tercih edeceğiniz ilk dil Python olabilir. Aynı zamanda bu sektöre yeni atılanlar için öğrenmesi de oldukça kolaydır. Python dili diğer diller gibi karmaşık söz dizimine sahip olmadığı için kolay okunur ve kolay yazılır.</p>
+    <p>Bir şirketin yazılım departmanında çalışıyorsanız eğer aldığınız maaşı yükseltmek için Python dili bilmeniz gerekir. Çünkü bu dili bilen yazılımcılar sektörde en yüksek maaşa sahip olanlardır. Python ile beraber Swift, C++, Java ve Ruby dilleri de yüksek maaş getirisi olan programlama dilleridir.</div>
+    <h2>Python Nerelerde Kullanılır?</h2>
+    <ul>
+        <li>
+            <strong>Web Geliştirme:</strong> Python yazılım dili, Django, Flask ve Pyramid dahil olmak üzere çeşitli web çerçeveleri ve kitaplıkları sunar. Web sitelerini ve web uygulamalarını kolayca oluşturmanıza olanak tanır.
+        </li>
+        <li>
+            <strong>Makine Öğrenimi:</strong> Makine öğrenimi (Machine Learning) dünyasında Python çok popülerdir. Örneğin, karmaşık modelleri ayarlayabileceğiniz ve eğitebileceğiniz TensorFlow, PyTorch ve Scikit-learn dahil olmak üzere çeşitli kitaplıklar vardır.
+        </li>
+        <li>
+            <strong>Bilimsel Hesaplamalar:</strong> NumPy, SciPy ve Matplotlib gibi Python kitaplıkları, gelişmiş hesaplamalar yapmanızı sağlar. Ayrıca verileri görselleştirebilirsiniz.
+        </li>
+        <li>
+            <strong>Oyun Geliştirme:</strong> Python bazen oyun endüstrisinde de kullanılır. Çünkü Pygame gibi kütüphaneler oyun yaratmayı mümkün kılar.
+        </li>
+        <li>
+            <strong>Otomasyon:</strong> Otomasyon söz konusu olduğunda Python son derece popülerdir. Çünkü bu programlama dili rutin görevleri otomatikleştirmek için idealdir. Komut dosyaları çalıştırmak ve raporlar oluşturmak daha basit hale getirilebilir.
+        </li>
+    </ul>
+    </div>
+    </div>
+
+    
+    <footer>
+        <div class="inner_footer">
+            <div class="child_footer">
+                <h3>Hakkımda</h3>
+                <h4>Kayseri Üniversitesi Bilgisayar Programcılığı Mezunuyum</h4>
+                <ul class="child_footer">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Linkler</h3>
+                <ul class="quick_links">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                    <li><a href="index.html#sertifikalarım">Sertifikalarım</a></li>
+                    <li><a href="index.html#basarilar">Başarılar</a></li>
+                    <li><a href="index.html#iletisim">İletişim</a></li>
+                    <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>İletişim</h3>
+                <ul class="footer_contact">
+                    <li><i class="fas fa-map-marked-alt"></i> Kayseri, Melikgazi</li>
+                    <li><i class="fas fa-phone"></i> 05555555555</li>
+                    <li><i class="fas fa-envelope"></i> 223010710064@kayseri.edu.tr</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/hilalmizrak">GitHub</a></li>
+                    
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Haberler Hızlı Ulaştı</h3>
+                <ul class="footer_contact">
+                    <form action="#">
+                        <input type="email" placeholder="Email">
+                        <input type="submit" value="Gönder">
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.footer_contact form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                window.location.href = 'index.html#iletisim'; 
+            });
+        });
+    </script>
+
+</body>
+</html>

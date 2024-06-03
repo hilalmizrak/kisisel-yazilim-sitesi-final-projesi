@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href = "https: //fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="myscript.js"></script>
+    <link rel="stylesheet" href="myscript.js">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>New Portfolio Web Site </title>
+
+    <style>
+        html {
+           scroll-behavior: smooth;
+       }
+       
+       * {
+           padding: 0;
+           margin: 0;
+           box-sizing: border-box;
+           list-style: none;
+           text-decoration: none;
+       }
+       
+       body {
+           font-family: "Montserrat", sans-serif;
+       }
+       
+       img {
+           width: 100%;
+       }
+       
+       section {
+           padding: 100px 0;
+           background: #122e44;
+       }
+       
+       .section_title {
+           margin-bottom: 30px;
+       }
+       
+       .section_title h2 {
+           position: relative;
+           text-align: center;
+           color: #797777;
+           font-size: 30px;
+           transition: all .5s ease-in-out;
+       }
+       
+       .section_title h2:hover {
+           background-color: #24caac;
+       }
+       
+       /* Header */
+       header {
+           background: rgb(4, 49, 70);
+           border-bottom: 1px solid rgba(red, green, blue, alpha);
+           position: fixed;
+           width: 100%;
+           z-index: 5;
+           top: 0
+       }
+       
+       .navbar {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           margin: 0 auto;
+           width: 88%;
+           padding: 10px ;
+           height: 50px;
+           
+       }
+       .navbar img {
+           max-width: 40px; 
+           max-height: 40px; 
+       }
+       
+       .nav_links {
+           display: flex;
+       }
+       
+       .nav_links li a {
+           margin-left: 15px;
+           color: #ffffff;
+           padding: 5px 15px;
+           border-radius: 5px;
+           transition: all .5s ease-in-out;
+       }
+       
+       .nav_links li a:hover {
+           background-color: #24caac;
+       }
+       
+       .logo h2 a {
+           color: #fff;
+           text-transform: uppercase;
+       }
+       .notification-box {
+           background-color: #f0f0f0;
+           border: 1px solid #ccc;
+           padding: 10px;
+           margin-top: 20px;
+       }
+       
+       .notification-box {
+           position: relative;
+           display: inline-block;
+           margin-left: 20px;
+       }
+       
+       .notification-box img {
+           width: 30px; 
+           height: auto;
+           cursor: pointer;
+       }
+       
+       .notification-box .notification-content {
+           display: none;
+           position: absolute;
+           top: 100%;
+           right: 0;
+           background-color: #f9f9f9;
+           min-width: 160px;
+           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+           padding: 12px;
+           z-index: 1;
+       }
+       
+       .notification-box:hover .notification-content {
+           display: block;
+       }
+       .message-container {
+           position: absolute;
+           top: 70px; 
+           right: 20px; 
+           width: 300px; 
+           background-color: #f9f9f9;
+           border: 1px solid #ddd;
+           padding: 20px;
+           z-index: 1000; 
+           display: none; 
+       }
+       #yazilimlar h2,
+       #sertifikalarım h2, 
+       #basarilar h2,
+       #hakkımda h2,
+       #iletisim h2{
+           color: #fff;
+       }
+       
+                   
+       /* Anasayfa */
+       .inner_anasayfa {
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           margin: 0 auto;
+           width: 80%;
+           color: #fff;
+       }
+       
+       .child_anasayfa {
+           flex-basis: 45%;
+       }
+       
+       .child_anasayfa h1 {
+           font-size: 50px;
+           color: #24caac;
+       }
+       
+       .span_child {
+           color: #e037ef;
+       }
+       
+       .child_anasayfa p {
+           font-size: 25px;
+           margin-bottom: 12px;
+       }
+       
+       .btn {
+           background: #24caac;
+           padding: 12px 28px;
+           border-radius: 20px;
+           color: #fff;
+           border: 1px solid #24caac;
+           font-weight: 700;
+           cursor: pointer;
+           transition: all .3s ease;
+       }
+       
+       .btn:hover {
+           background: transparent;
+           letter-spacing: 2px;
+       }
+       
+       
+       /* Yazılımlar */
+       .innersoftware {
+           display: flex;
+           align-items: center;
+           width: 80%;
+           justify-content: space-between;
+           margin: 0 auto;
+       }
+       
+       .innersoftware_child {
+           flex-basis: 31%;
+           color: #fff;
+           padding: 25px 20px;
+           background: rgba(27, 48, 75, 0.281);
+           border-radius: 5px;
+           border: 1px solid transparent;
+           transition: all .5s ease-in;
+       }
+       
+       .innersoftware_child:hover {
+           border: 1px solid #24caac;
+       }
+       
+       .innersoftware_child.icon {
+           font-size: 25px;
+           color: #24caac;
+       }
+       
+       .innersoftware_child h2 {
+           font-size: 20px;
+           margin: 5px 0;
+       }
+       
+       .innersoftware_child p {
+           font-size: 15px 16px;
+           margin-bottom: 10px;
+           font-size: 1em;
+       }
+       
+       .innersoftware_child h3{
+           color: #072943;
+           margin-top: 10px;
+           margin-bottom: 5px;
+           font-size: 1.2em;
+       }
+       #yazilimlar .innersoftware_child {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           text-align: center;
+           margin-bottom: 20px;
+       }
+       
+       #yazilimlar .innersoftware_child a {
+           display: inline-block;
+           padding: 10px 20px;
+           margin-top: 10px;
+           background-color: rgb(255, 255, 255);
+       }
+       
+       
+       
+       
+       #yazilimlar .innersoftware_child:nth-child(1) h3 a,
+       #yazilimlar .innersoftware_child:nth-child(2) h3 a,
+       #yazilimlar .innersoftware_child:nth-child(3) h3 a,
+       #yazilimlar .innersoftware_child:nth-child(4) h3 a,
+       #yazilimlar .innersoftware_child:nth-child(5) h3 a,
+       #yazilimlar .innersoftware_child:nth-child(6) h3 a{
+           color: #24caac;
+       }
+       
+       /* Sertifikalarım */
+       .inner_courses {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           align-items: center;
+           width: 80%;
+           margin: 0 auto;
+       }
+       
+       .childer_courses {
+           flex-basis: 24%;
+           color: #fff;
+           padding: 20px 10px 20px 10px;
+           border: 1px solid transparent;
+           transition: .3s;
+           border-radius: 5px;
+       }
+       
+       .childer_courses:hover {
+           border: 1px solid #24caac;
+       }
+       
+       .childer_courses .detail {
+           display: flex;
+           justify-content: space-between;
+       }
+       
+       .childer_courses .detail ul {
+           display: flex;
+           justify-content: space-between;
+           flex-basis: 50%;
+       }
+       
+       .childer_courses .detail ul li {
+           color: gold;
+       }
+       
+       /* Başarılar */
+       .inner_achivement {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           align-items: center;
+           width: 80%;
+           margin: 0 auto;
+       }
+       
+       .child_achivement {
+           flex-basis: 40%;
+       }
+       
+       .child_achivement img {
+           height: 100%;
+           width: 100%;
+           object-fit: cover;
+       }
+       
+       .child_achivement2 {
+           flex-basis: 46%;
+           display: flex;
+           flex-wrap: wrap;
+           text-align: center;
+           justify-content: space-between;
+       }
+       
+       .single_detail {
+           flex-basis: 48%;
+           padding: 40px 30px;
+           color: #fff;
+           border-radius: 5px;
+           transition: .3s;
+       }
+       
+       .single_detail:hover {
+           transform: scale(1, 1.03);
+       }
+       
+       .sd_1 {
+           background: #eaa023;
+           margin-bottom: 20px;
+       }
+       
+       .sd_2 {
+           background: #e91a63;
+           margin-bottom: 20px;
+       }
+       
+       .sd_3 {
+           background: #24caac;
+           margin-bottom: 20px;
+       }
+       
+       .sd_4 {
+           background: #2f363e;
+           margin-bottom: 20px;
+       }
+       
+       /* Hakkımda */
+       .inner_testi {
+           display: flex;
+           flex-wrap: wrap;
+           align-items: center;
+           justify-content: space-between;
+           width: 80%;
+           margin: 0 auto;
+           color: #fff;
+       }
+       
+       .child_testi {
+           flex-basis: 46%;
+           margin-bottom: 30px;
+       }
+       
+       .testi_img {
+           width: 80px;
+           margin-bottom: 10px;
+       }
+       
+       .testi-img img {
+           border-radius: 50%;
+       }
+       
+       .test_heiglight {
+           color: #24caac;
+           margin: 10px 0;
+           display: inline-block;
+       }
+       
+       .test_heiglight:hover {
+           text-decoration: underline;
+       }
+       
+       /* İletişim Formu */
+       
+       
+       body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 0;
+       }
+       
+       .container {
+           max-width: 800px;
+           margin: 50px auto;
+           padding: 20px;
+           border-radius: 8px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+       
+       .contact-info {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           
+       }
+       
+       .contact-image {
+           width: 40%;
+           border-radius: 8px;
+       }
+       
+       .contact-options {
+           width: 50%;
+           margin-left: 20px;
+       }
+       
+       .contact-option {
+           margin-bottom: 20px;
+           padding: 20px;
+           border: 1px solid #ccc;
+           border-radius: 8px;
+           text-align: center;
+       }
+       
+       .contact-option p {
+           margin-bottom: 10px;
+       }
+       
+       .contact-button {
+           background-color: #4CAF50;
+           color: white;
+           padding: 10px 20px;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           transition: background-color 0.3s;
+       }
+       
+       .contact-button:hover {
+           background-color: #45a049;
+       }
+       
+       /*..........FOOTER......*/
+       
+       
+       footer {
+           background: #122e44;
+           padding: 50px 0;
+           text-align: center;
+           color: #fff;
+       }
+       
+       .inner_footer {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           width: 80%;
+           margin: 0 auto;
+       }
+       
+       .child_footer {
+           flex-basis: 23%;
+       }
+       
+       .child_footer h3 {
+           font-size: 20px;
+           margin-bottom: 20px;
+       }
+       .child_footer h4{
+           font-size: 20px;
+           margin-bottom: 20px;
+           color: #fff;
+       }
+       
+       .child_footer ul {
+           display: flex;
+           justify-content: space-between;
+           flex-basis: 50%;
+       }
+       
+       .child_footer ul li {
+           color: rgb(252, 251, 244);
+       }
+       
+       .quick_links {
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+           text-align: left;
+       }
+       
+       .quick_links li {
+           flex-basis: 48%;
+           margin-bottom: 10px;
+       }
+       
+       .footer_contact {
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+           text-align: left;
+       }
+       
+       .footer_contact li {
+           flex-basis: 48%;
+           margin-bottom: 10px;
+       }
+       
+       .footer_contact i {
+           margin-right: 10px;
+       }
+       
+       .footer_contact form {
+           display: flex;
+           flex-direction: column;
+           width: 100%;
+       }
+       
+       .footer_contact form input,
+       .footer_contact form textarea {
+           width: 100%;
+           padding: 10px;
+           margin-bottom: 20px;
+           background: #242920;
+           border: none;
+           color: #fff;
+           border-radius: 5px;
+       }
+       
+       .footer_contact form input::placeholder,
+       .footer_contact form textarea::placeholder {
+           color: #fff;
+       }
+       
+       .footer_contact form input[type="submit"] {
+           background: #24caac;
+           color: #fff;
+           cursor: pointer;
+           transition: all.3s ease;
+       }
+       
+       .footer_contact form input[type="submit"]:hover {
+           background: transparent;
+           color: #24caac;
+           border: 1px solid #24caac;
+       }
+       
+       @media (max-width: 768px) {
+          .inner_footer {
+               flex-direction: column;
+           }
+       
+          .child_footer {
+               margin-bottom: 30px;
+           }
+       
+          .child_footer:last-child {
+               margin-bottom: 0;
+           }
+       
+          .quick_links li,
+          .footer_contact li {
+               flex-basis: 100%;
+           }
+       }
+       footer .child_footer {
+                   background: #122e44;
+                   padding: 20px;
+                   border-radius: 5px;
+                   margin-bottom: 20px; 
+       }
+               footer .child_footer a {
+                   color: #24caac;
+               }
+       
+       
+           </style>
+</head>
+    <header>
+        
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="kullanıcı.html">Hilal Mızrak</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="#anasayfa">Anasayfa</a></li>
+                <li><a href="#yazilimlar">Yazılımlar</a></li>
+                <li><a href="#sertifikalarım">Sertifikalar</a></li>
+                <li><a href="#basarilar">Başarılar</a></li>
+                <li><a href="#hakkımda">Hakkımda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+            </ul>
+            
+            </div>
+        </div>
+    </header>
+   <!--Anasayfa--> 
+   <section id="anasayfa">
+    <div class="inner_anasayfa">
+        <div class="child_anasayfa">
+            <h1> WEB SİTEYE Mİ İHTİYACIN VAR? <br><span class="span_child">NE BEKLİYORSUN?</span></h1>
+            <p> Kısa sürede etkili tasarımlar için</p>
+            <button onclick="redirectToSubscribePage()" class="btn">MESAJ AT</button>
+
+        </div>
+        <div class="child_anasayfa">
+            <img src="img/yazılımcı.jpg" alt="">
+        </div>
+    </div>
+   </section>
+   <body>
+    <script>
+        function redirectToSubscribePage() {
+            window.location.href = "mesajlaşma.html";
+        }
+    </script>
+    
+    <script>
+        function scrollToContactForm() {
+            document.querySelector('#iletisim form').scrollIntoView();
+        }
+    </script>
+
+   </body>
+<!--yazılımlar-->
+<section id="yazilimlar">
+    <div class="section_title">
+        <h2>YAZILIMLAR</h2>
+    </div>
+    <div class="innersoftware">
+        <div class="innersoftware_child">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h3><a href="html_css.html">HTML & CSS</a></h3>
+            <p>HTML & CSS ile istediğiniz şekilde web siteleri tasarlayabilirsiniz.</p>
+        </div>
+        <div class="innersoftware_child">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h3><a href="pyhton.html">PYTHON</a></h3>
+            <p>Tüm masaüstü yazılımlar ve zor işlerinizi pratik bir şekilde gerçekleştirmek için Python'ın gücünden yararlanıyorum.</p>
+        </div>
+        <div class="innersoftware_child">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h3><a href="javascript.html">JAVASCRIPT</a></h3>
+            <p>Web sitelerinin olmazsa olmazı olan JavaScript'i her projede kullanarak etkileyici siteler üretiyorum.</p>
+        </div>
+        <div class="innersoftware_child">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h3><a href="java.html">JAVA</a></h3>
+            <p>Java ile uygulama geliştirme ve web geliştirme alanında uzmanım.</p>
+        </div>
+        <div class="innersoftware_child">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h3><a href="c++.html">C++</a></h3>
+            <p>C++ ile hızlı ve güvenilir yazılımlar geliştirebilirim.</p>
+        </div>
+        <div class="innersoftware_child">
+            <div class="icon">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h3><a href="php.html">PHP</a></h3>
+            <p>PHP ile dinamik web siteleri ve web uygulamaları geliştirebilirim.</p>
+        </div>
+    </div>
+</section>
+   <!--sertifikalarım-->
+   <section id="sertifikalarım">
+    <div class="section_title">
+        <h2>SERTİFİKALARIM</h2>
+    <div>
+            <div class="inner_courses">
+                <div class="childer_courses">
+                    <div class="course.img">
+                        <img src="img/indir (3).png " alt="">
+                    </div>
+                    <div class="detail">
+                        <p>Neos</p>
+                        <ul>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                        </ul> 
+                    </div>
+                    <h3>JAVASCRİPT</h3>
+                </div>
+                <div class="childer_courses">
+                    <div class="course.img">
+                        <img src="img/indir.jpeg" alt="">
+                    </div>
+                    <div class="detail">
+                        <p>Neos</p>
+                        <ul>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <h3>BOOTRAP</h3>
+                </div>
+                <div class="childer_courses">
+                    <div class="course.img">
+                        <img src="img/indir (1).png " alt="">
+                    </div>
+                    <div class="detail">
+                        <p>Neos</p>
+                        <ul>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <h3>REACT</h3>
+                </div>
+                <div class="childer_courses">
+                    <div class="course.img">
+                        <img src="img/indir (2).png " alt="">
+                    </div>
+                    <div class="detail">
+                        <p>Neos</p>
+                        <ul>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <h3>PYHTON</h3>
+                </div>
+            </div>
+        </div>
+   </section>
+   <!--BAŞARILAR-->
+   <section id="basarilar">
+        <div class="section_title">
+            <h2>BAŞARILARIM</h2>
+        </div>
+            <div class="inner_achivement">
+                <div class="child_achivement">
+                    <img src="img/yazılımcı.jpg" alt="">
+                </div>
+                <div class="child_achivement2">
+                    <div class="single_detail sd_1">
+                        <h1>20+</h1>
+                        <p>PORTFOLİO WEB</p>
+                    </div>
+                    <div class="single_detail sd_2">
+                        <h1>30+</h1>
+                        <p>BUSINESS WEB</p>
+                    </div>
+                    <div class="single_detail sd_3">
+                        <h1>20+</h1>
+                        <p>E-TİCARET WEB</p>
+                    </div>
+                    <div class="single_detail sd_4">
+                        <h1>20+</h1>
+                        <p>MASAÜSTÜ WEB</p>
+                    </div>
+                </div>
+            </div>
+   </section>
+   <!--HAKKIMDA-->
+   <section id="hakkımda">
+    <div class="section_title">
+        <h2>Çalıştığım Firmalar Ve Ne Söyledikleri</h2>
+    </div>
+      <div class="inner_testi">
+        <div class="child_testi">
+            <div class="testi_img">
+            <img src="img/indir (1).jpeg " alt="">
+        </div>
+        <p>"Hilal Hanım Her Zamanki Gibi Kısa Sürede Teslimatı Yaptı."</p>
+        <a class="test_heiglight">Tuğçe Yılmaz</a>
+        <p>Firma CEO</p>
+      </div>
+      <div class="child_testi">
+        <div class="testi_img">
+         <img src="img/indir (2).jpeg " alt="">
+         </div>
+         <p>"Çok zor bir işi çok basit bir şekilde halleti, ihtiyacınızı siz söylemeden anlayabiliyor kesinlikle şans verin."</p>
+         <a class="test_heiglight">Merve Demşr</a>
+        <p>Firma Müdürü</p>
+        </div>
+      <div class="child_testi">
+        <div class="testi_img">
+         <img src="img/indir (4).jpeg " alt="">
+         </div>
+         <p>"Tekrar bir sorun yaşayacak olursam geleceğim yeri biliyorum. Gönül rahatlığıyla tercih edebilirsiniz."</p>
+         <a class="test_heiglight">Demir Çetinkaya</a>
+         <p>Firma CEO</p>
+        </div>
+       <div class="child_testi">
+        <div class="testi_img">
+         <img src="img/indir (3).jpeg " alt="">
+         </div>
+         <p>"Her şeyin en ince ayrıntısına kadar anlatıp her konuda yardımcı oldu teşekkür ediyorum."</p>
+         <a class="test_heiglight">sare öz</a>
+         <p>Firma Müdürü</p>
+        </div>
+   </section>
+   <!--İLETİŞİM-->
+  <section id="iletisim">
+    <div class="container">
+   
+        <div class="contact-info">
+            <img src="img/ilet(1).png" alt="Contact Image" class="contact-image">
+            <div class="contact-options">
+                <div class="contact-option">
+                    <p>Telefon ile iletişime geçmek istiyorsanız tıklayın:</p>
+                    <button class="contact-button" onclick="window.location.hash = 'footer';">Telefon</button>
+                </div>
+                <div class="contact-option">
+                    <p>Mesaj ile iletişime geçmek istiyorsanız abone olunuz:</p>
+                    <button class="contact-button" onclick="window.location.href = 'abone-ol.html';">Abone Ol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+   <!--FOOTER-->
+   <footer>
+    <section id="footer">
+        <div class="inner_footer">
+            <div class="child_footer">
+                <h3>Hakkımda</h3>
+                <h4>Kayseri Üniversitesi Bilgisayar Programcılığı Mezunuyum</h4>
+                <ul class="child_footer">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Linkler</h3>
+                <ul class="quick_links">
+                    <li><a href="#anasayfa">Anasayfa</a></li>
+                    <li><a href="#yazilimlar">Yazılımlar</a></li>
+                    <li><a href="#sertifikalarim">Sertifikalarım</a></li>
+                    <li><a href="#basarilar">Başarılar</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                    <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>İletişim</h3>
+                <ul class="footer_contact">
+                    <li><i class="fas fa-map-marked-alt"></i> Kayseri, Melikgazi</li>
+                    <li><i class="fas fa-phone"></i> 05555555555</li>
+                    <li><i class="fas fa-envelope"></i> 223010710064@kayseri.edu.tr</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/hilalmizrak">GitHub</a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Haberler Hızlı Ulaştı</h3>
+                <ul class="footer_contact">
+                    <form action="#iletişim">
+                        <input type="email" placeholder="Email">
+                        <input type="submit" value="Gönder">
+                    </form>
+                </ul>
+            </div>
+        </div>
+       </footer>
+    </section>
+    
+   
+
+
+</body>
+</html>
+
+
+
+

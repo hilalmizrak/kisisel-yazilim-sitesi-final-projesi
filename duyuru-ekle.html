@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyuru Ekle</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .announcements {
+            margin-top: 30px;
+        }
+
+        .announcement {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .back-button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+        
+        .back-button {
+            text-decoration: none;
+            color: #007bff;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Duyuru Ekle</h1>
+        <form id="announcement-form">
+            <div class="form-group">
+                <label for="title">Başlık</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mesaj</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="conference-date">Konferans Tarihi</label>
+                <input type="text" id="conference-date" name="conference-date" placeholder="Örnek: 10 Temmuz 2024" required>
+            </div>
+            <div class="form-group">
+                <label for="conference-city">Konferans Şehri</label>
+                <input type="text" id="conference-city" name="conference-city" required>
+            </div>
+            <button type="submit">Duyuru Ekle</button>
+        </form>
+
+        <div class="announcements" id="announcements">
+            <h2>Mevcut Duyurular</h2>
+        </div>
+        <div class="announcement">
+            <p><strong>2024-05-10:</strong> İstanbul - Yapay Zeka Konferansı</p>
+            <p><strong>2024-05-15:</strong> Ankara - Veri Bilimi Konferansı</p>
+            <p><strong>2024-05-20:</strong> İzmir - Blockchain Konferansı</p>
+            <p><strong>2024-06-05:</strong> Adana - İş Zekası Konferansı</p>
+            <p><strong>2024-06-10:</strong> Gaziantep - Bulut Bilişim Konferansı</p>
+            <p><strong>2024-06-15:</strong> Muğla - Nesnelerin İnterneti Konferansı</p>
+            <p><strong>2024-06-20:</strong> İstanbul - Siber Güvenlik Konferansı</p>
+            <p><strong>2024-06-25:</strong> Antalya - Büyük Veri Konferansı</p>
+            <p><strong>2024-07-14:</strong> Kayseri - Veri Bilimi Konferansı</p>
+            <p><strong>2024-07-19:</strong> Konya - İş Zekası  Konferansı</p>
+            <p><strong>2024-07-24:</strong> Eskişehir - Siber Güvenlik Konferansı</p>
+            <p><strong>2024-08-10:</strong> Çorum - Blockchain Konferansı</p>
+            <p><strong>2024-08-15:</strong> Trabzon - Büyük Veri Konferansı</p>
+            <p><strong>2024-08-20:</strong> Samsun - Nesnelerin İnterneti Konferansı</p>
+            <p><strong>2024-08-29:</strong> Rize - Bulut Bilişim Konferansı</p>
+            <p><strong>2024-09-05:</strong> Kocaeli - Yapay Zeka Konferansı</p>
+            <p><strong>2024-09-18:</strong> Bursa - Blockchain Konferansı</p>
+        </div>
+        <div class="back-button-container">
+            <a class="back-button" href="kullanıcı.index sayfası.html">Geri Dön</a>
+        </div>
+        
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script>
+        
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
+            measurementId: "YOUR_MEASUREMENT_ID"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+ 
+        document.getElementById('announcement-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const message = document.getElementById('message').value;
+            const conferenceDate = document.getElementById('conference-date').value;
+            const conferenceCity = document.getElementById('conference-city').value;
+
+            db.collection("duyurular").add({
+                title: title,
+                message: message,
+                conferenceDate: conferenceDate,
+                conferenceCity: conferenceCity,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(function(docRef) {
+                console.log("Yeni duyuru eklendi:", docRef.id);
+                alert("Duyuru başarıyla eklendi!");
+                document.getElementById('announcement-form').reset();
+                loadAnnouncements();
+            })
+            .catch(function(error) {
+                console.error("Duyuru ekleme hatası:", error);
+                alert("Duyuru eklerken bir hata oluştu!");
+            });
+        });
+
+        function loadAnnouncements() {
+            const announcementsContainer = document.getElementById('announcements');
+            announcementsContainer.innerHTML = '<h2>Mevcut Duyurular</h2>';
+
+            db.collection("duyurular").orderBy("timestamp", "desc").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const announcement = `
+                        <div class="announcement">
+                            <h3>${data.title}</h3>
+                            <p>${data.message}</p>
+                            <p><strong>Konferans Tarihi:</strong> ${data.conferenceDate}</p>
+                            <p><strong>Konferans Şehri:</strong> ${data.conferenceCity}</p>
+                        </div>
+                    `;
+                    announcementsContainer.innerHTML += announcement;
+                });
+            });
+        }
+
+        loadAnnouncements();
+    </script>
+</body>
+</html>

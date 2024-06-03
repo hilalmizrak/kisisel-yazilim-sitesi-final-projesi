@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href = "https: //fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="myscript.js"></script>
+    <link rel="stylesheet" href="myscript.js">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Java Sayfası</title>
+</head>
+
+<style>
+
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+    
+            html {
+                scroll-behavior: smooth;
+            }
+            header {
+    background: rgb(4, 49, 70);
+    border-bottom: 1px solid rgba(red, green, blue, alpha);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 88%;
+    padding: 10px 0;
+    height: 50px;
+}
+
+.nav_links {
+    display: flex;
+}
+
+.nav_links li a {
+    margin-left: 15px;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.nav_links li a:hover {
+    background-color: #24caac;
+}
+.notification-box img {
+    max-width: 30px;
+    max-height: 30px;
+    
+}
+.notification-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px; 
+    margin-top: 10px; 
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; 
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notificationCount{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.notification-box img {
+    width: 30px; 
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    cursor: pointer;
+    max-width: 40px; 
+    max-height: 40px;
+}
+
+.notification-box .notification-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+}
+
+.notification-box:hover .notification-content {
+    display: block;
+}
+.logo h2 a {
+    color: #fff;
+    text-transform: uppercase;
+}
+           
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #ffffff;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+            }
+            h1, h2, h3, h4 {
+                color: #333;
+                margin: 0;
+                padding: 1rem 0;
+                margin-bottom: 20px;
+            }
+            p {
+                color: #666;
+                text-align: justify;
+                padding: 0 2rem;
+                margin: 1rem 0;
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .container {
+        max-width: 800px;
+        width: 90%; 
+        text-align: left; 
+    }
+            ul {
+                text-align: left;
+                padding-left: 20px;
+                justify-content: space-between;
+                align-items: center;
+            }
+            li {
+                margin-bottom: 10px;
+                justify-content: space-between;
+                align-items: center;
+            }
+            img {
+                width: 100%;
+                max-width: 800px;
+                height: auto;
+                margin-bottom: 50px;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+    footer {
+        background: #122e44;
+        padding: 50px 0;
+        text-align: center;
+        color: #fff;
+    }
+    
+    .inner_footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .child_footer {
+        flex-basis: 23%;
+    }
+    
+    .child_footer h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+    
+    .child_footer h4 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+    
+    .child_footer ul {
+        display: flex;
+        justify-content: space-between;
+        flex-basis: 50%;
+    }
+    
+    .child_footer ul li {
+        color: rgb(252, 251, 244);
+    }
+    
+    .quick_links {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: left;
+        color: #122e44;
+    }
+    
+    .quick_links li {
+        flex-basis: 48%;
+        margin-bottom: 10px;
+    }
+    
+    .footer_contact {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: left;
+    }
+    
+    .footer_contact li {
+        flex-basis: 48%;
+        margin-bottom: 10px;
+    }
+    
+    .footer_contact i {
+        margin-right: 10px;
+    }
+    
+    .footer_contact form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .footer_contact form input,
+    .footer_contact form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        background: #242920;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+    }
+    
+    .footer_contact form input::placeholder,
+    .footer_contact form textarea::placeholder {
+        color: #fff;
+    }
+    
+    .footer_contact form input[type="submit"] {
+        background: #24caac;
+        color: #fff;
+        cursor: pointer;
+        transition: all.3s ease;
+    }
+    
+    .footer_contact form input[type="submit"]:hover {
+        background: transparent;
+        color: #24caac;
+        border: 1px solid #24caac;
+    }
+    
+    @media (max-width: 768px) {
+        .inner_footer {
+            flex-direction: column;
+        }
+    
+        .child_footer {
+            margin-bottom: 30px;
+        }
+    
+        .child_footer:last-child {
+            margin-bottom: 0;
+        }
+    
+        .quick_links li,
+        .footer_contact li {
+            flex-basis: 100%;
+        }
+    }
+    footer .child_footer {
+            background: #122e44;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px; 
+}
+        footer .child_footer a {
+            color: #24caac;
+        }
+
+        </style>
+
+        
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="#">Hilal Mızrak</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="index.html#anasayfa">Anasayfa</a></li>
+                <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                <li><a href="index.html#sertifikalarım">Sertifikalar</a></li>
+                <li><a href="index.html#basarilar">Başarılar</a></li>
+                <li><a href="indez.html#hakkımda">Hakkımda</a></li>
+                <li><a href="index.html#iletisim">İletişim</a></li>
+                <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+            </ul>
+        </div>
+        
+    </header>
+    <h1>Java</h1>
+    <div class="container">
+        <h2>Java ile uygulama geliştirme ve web geliştirme alanında uzmanım.</h2>
+        <div class="header-content">
+            <img src="img/Ileri-Java-Egitimi.jpg" alt="">
+            <p>İnternete bağlı olsun, olmasın pek çok dijital cihazda karşımıza çıkan Java hem bir programlama dili hem bir bilgi işlem platformu hem de bir uygulama çalıştırma yazılımıdır.</p>
+            <h2>JAVA Nedir?</h2>
+            <p>Sun Microsystems tarafından geliştirilmiş olan Java ilk kez 1995 yılında piyasaya sunuldu. Java; geniş kullanım alanına sahip, sınıf tabanlı, nesne yönelimli olarak tanımlanan bir programlama dilidir. Java aynı zamanda uygulama geliştirme ve çalıştırma çalışmaları yapılan bir bilgi işlem platformudur. Java ayrıca son kullanıcının ücretsiz olarak indirerek kullanabileceği bir uygulama çalıştırma yazılımıdır. </p>
+            <p>Java, uzun yıllardır kullanılan bir programlama dili olduğu için yıllar içinde pek çok farklı güncelleme aldı ve farklı sürümleri yayınlandı. Son olarak 2020 yılının Eylül ayında Java SE 15 sürümü yayınlandı. Kullanıcıların uygulama çalıştırmak amacıyla indirecekleri yazılım ise Java 8 sürümüdür. </p>
+            <p>Kullanıcıların uygulama çalıştırmak için kullanacakları Java yazılımı Java Runtime Environment kısaca JRE olarak adlandırılırken, uygulama geliştiricilerin kullandığı bilgi işlem platformu Java Virtual Machine kısaca JRM olarak adlandırılmaktadır. Uygulama geliştiricilerin kullanabileceği bir de Java Development Kit kısaca JDK aracı vardır. Buradaki bağlantı üzerindeki Java resmi internet sitesine girerek tüm bu hizmetlere ulaşabilirsiniz</p>
+            <h2>JAVA Ne İşe Yarar?</h2>
+            <p>Java ile uygulama geliştirebilir, bu uygulamayı test edebilir ve kullanıcının bu uygulamayı kullanabileceği altyapıyı sunabilirsiniz. Bu noktada Java ne işe yarar değil de Java ile neler yapılır diye sormak çok daha makul olacaktır.Java ile yapabileceklerinizden bazıları şu şekilde;</p>
+            <ul>
+                <li>Android işletim sistemine sahip cihazlar için uygulama geliştirebilirsiniz.</li>
+                <li>Java dilinde kurumsal yazılımlar oluşturabilirsiniz.</li>
+                <li>Mobil Java uygulamaları geliştirebilirsiniz.</li>
+                <li>Hesaplama uygulaması geliştirebilirsiniz.</li>
+                <li>Büyük veri analizleri yapabilirsiniz.</li>
+                <li>Donanımların cihaz uyumluluğunu Java üzerinden programlayabilirsiniz.</li>
+                <li>Apache, JBoss, GlassFish gibi teknolojilerde kullanabilirsiniz.</li>
+                <li>JDK ile Java uygulama başlatıcısını kullanabilirsiniz.</li>
+                <li>JDK derleyicisi ile kodları bayt koduna dönüştürürsünüz.</li>
+                <li>JDK Java uygulama başlatıcısı ile sınıf yükleme yaparsınız.</li>
+                <li>JRE ile tüm Java uygulamalarını çalıştırırsınız.</li>
+                <li>JRE ile tüm kitaplıkları ve paket sınıflarını kullanırsınız.</li>
+              </ul>
+              <img src="img/Java.jpg" alt="">
+              <h2>JAVA'nın Öne Çıkan Avantajları</h2>  
+              <ul>
+                <li>En kolay öğrenebileceğiniz programlama dillerinden bir tanesidir.</li>
+                <li>Java kodu ile yazılan taban, neredeyse tüm bilgi işlem platformlarında çalışır.</li>
+                <li>Java ile yazılan kod tabanları platformlardan bağımsız olduğu için bir makinede yazılan uygulama farklı makinelerde de çalışır.</li>
+                <li>Nesne odaklı uygulama geliştirmeleri için idealdir.</li>
+                <li>Otomatik bellek yönetimine sahip olduğu için birden fazla işlemi kolaylıkla yapar.</li>
+                <li>İnternet ortamı için idealdir.</li>
+                <li>Ağ merkezli dağıtılan bilgi işlemi kolaylaştırmaktadır.</li>
+              </ul>
+              <p>Java programlama dilini ve diğer Java hizmetlerini kullanmanın öne çıkan avantajlarından bazıları bu şekilde. Elbette kullanıcıya ve uygulamanın geliştirileceği platforma göre bu listeye farklı avantajlar eklenebilir ya da avantaj olarak görülen özellikler dezavantaja dönüşebilir. Ancak yine de avantajların her zaman baskın geldiğini söylemek mümkün.</p>
+              <h2>JAVA Platform Türleri Ve Özellikleri</h2>
+              <ul>
+                <li>Java Standard Edition</li>
+                <li>Java Enterprise Edition</li>
+                <li>Java Micro Edition</li>
+                <li>Java FX</li>
+              </ul>
+              <img src="img/9081c992ca8b6f9fd55a9f36c6f5fae08ed5f57f.jpeg" alt="">   
+              <h2>Java Standard Edition</h2>
+              <p>Java programlama dilinin temel işlevlerini sunan Java Standard Edition, kısaca Java SE; bütün türleri ve nesneleri en üst düzey sınıflar için tanımlar. Ağ oluştururken, güvenlik amacıyla, veritabanı erişimi için, grafik kullanıcı birimi GUI oluştururken ve XML ayrıştırırken kullanabilirsiniz.</p>
+              <h2>Java Enterprise Edition</h2>  
+              <p>Daha üst düzey bir hizmet veren Java Enterprise Edition, kısaca Java EE; yüksek düzeyde ölçeklendirilebilen, daha büyük ölçekli, çok katmanlı ve güvenli ağ uygulamaları geliştirmek amacıyla kullanılır. Java EE ile geliştirilen uygulamalar daha güvenilirdir ve daha geniş çalışma zamanı ortamı sunar.</p>
+              <h2>Java Micro Edition</h2>         
+              <p>Java ME kısaltması ile anılan Java Micro Edition akıllı telefon ve tablet gibi küçük cihazlarda Java programlama dili ile geliştirilmiş uygulamaları çalıştırır. Java Micro Edition, kullanıcılarına çok daha az yer kaplayan bir sanal makine sunar.</p>
+              <h2>Java FX</h2>
+              <p>Java FX, kullanıcılarına çok daha basit bir arayüz üzerinden zengin internet tabanlı uygulamalar geliştirme imkanı sunan bir platformdur. Standart Java’dan farklı olarak daha yüksek performanslı istemcilere ve ağ bağlantılı veri kaynaklarına bağlanan API’lardan yararlanmanıza yardımcı olan grafik ve medya motorları kullanır.</p>
+              <p>Günümüzün internet ve dijital dünyasını şekillendirerek geleceğin dünyasını da şekillendireceğinin işaretini veren Java nedir, ne işe yarar gibi merak edilen konuları yanıtladık ve Java sistemi hakkında bilmeniz gereken detaylardan bahsettik. </p>
+
+        </div>
+    </div>
+    <footer>
+        <div class="inner_footer">
+            <div class="child_footer">
+                <h3>Hakkımda</h3>
+                <h4>Kayseri Üniversitesi Bilgisayar Programcılığı Mezunuyum</h4>
+                <ul class="child_footer">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Linkler</h3>
+                <ul class="quick_links">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="index.html#yazilimlar">Yazılımlar</a></li>
+                    <li><a href="index.html#sertifikalarım">Sertifikalarım</a></li>
+                    <li><a href="index.html#basarilar">Başarılar</a></li>
+                    <li><a href="index.html#iletisim">İletişim</a></li>
+                    <li><a href="duyuru-konferans-takvimi.html">Duyurular</a></li>
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>İletişim</h3>
+                <ul class="footer_contact">
+                    <li><i class="fas fa-map-marked-alt"></i> Kayseri, Melikgazi</li>
+                    <li><i class="fas fa-phone"></i>                 <li><i class="fas fa-phone"></i> 05555555555</li>
+                </li>
+                    <li><i class="fas fa-envelope"></i> 223010710064@kayseri.edu.tr</li>
+                    <li><i class="fab fa-github"></i> <a href="https://github.com/hilalmizrak">GitHub</a></li>
+                    
+                </ul>
+            </div>
+            <div class="child_footer">
+                <h3>Haberler Hızlı Ulaştı</h3>
+                <ul class="footer_contact">
+                    <form action="#">
+                        <input type="email" placeholder="Email">
+                        <input type="submit" value="Gönder">
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.footer_contact form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                window.location.href = 'index.html#iletisim';
+            });
+        });
+    </script>
+    
+</body>
+</html>

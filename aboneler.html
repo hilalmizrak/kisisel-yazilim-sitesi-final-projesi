@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aboneler</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        section {
+            padding: 100px 0;
+            background: #122e44;
+        }
+
+        .section_title {
+            margin-bottom: 30px;
+        }
+
+        .section_title h2 {
+            position: relative;
+            text-align: center;
+            color: #797777;
+            font-size: 30px;
+            transition: all .5s ease-in-out;
+        }
+
+        .section_title h2:hover {
+            background-color: #24caac;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #aboneler-listesi {
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #aboneler-listesi th, #aboneler-listesi td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #aboneler-listesi th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .back-button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #007bff;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Abone Olan Kullanıcılar</h1>
+    <table id="aboneler-listesi">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>E-posta</th>
+            </tr>
+           
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hayat</td>
+                <td>Su</td>
+                <td>hytsu@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Nur</td>
+                <td>Ceylan</td>
+                <td>nurcyln@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Cem</td>
+                <td>Yaz</td>
+                <td>cem123@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Gül</td>
+                <td>Yılmaz</td>
+                <td>ylmzgül1@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Pınar</td>
+                <td>Su</td>
+                <td>pınarsu45@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="back-button-container">
+        <a class="back-button" href="kullanıcı.index sayfası.html">Geri Dön</a>
+    </div>
+    
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
+            measurementId: "YOUR_MEASUREMENT_ID"
+        };
+        
+     
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const abonelerRef = db.collection("aboneler");
+        abonelerRef.get().then((querySnapshot) => {
+            const abonelerListesi = document.querySelector("#aboneler-listesi tbody");
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const aboneBilgisi = `
+                    <tr>
+                        <td>${data.firstname}</td>
+                        <td>${data.lastname}</td>
+                        <td>${data.email}</td>
+                    </tr>
+                `;
+                abonelerListesi.innerHTML += aboneBilgisi;
+            });
+        });
+    </script>
+</body>
+</html>

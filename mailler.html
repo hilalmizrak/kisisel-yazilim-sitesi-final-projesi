@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .navigation {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .navigation ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navigation ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .navigation ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        .navigation ul li a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .mail {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .mail h3 {
+            margin-top: 0;
+        }
+
+        .mail p {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+
+        .back-button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #007bff;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Email Sayfası</h1>
+    </div>
+
+    <div class="navigation">
+        <ul>
+            <li><button class="nav-button">Gelen Mailler</button></li>
+            <li><button class="nav-button">Gönderilen Mailler</button></li>
+            <li><button class="nav-button">Taslaklar</button></li>
+            <li><button class="nav-button">Reklamlar</button></li>
+            <li><button class="nav-button">Yeni Mail Oluştur</button></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Gelen Mailler</h2>
+        <div class="mail">
+            <h3>Konferans Sunuculuğu</h3>
+            <p>Gönderen:hytsu@gmail.com.com</p>
+            <p>İçerik: İyi günler Hilal Hanım. Kayseri konferansında sunu olarak görev almak istiyorum. Bilgi alabilir miyim?</p>
+            <button class="response-button">Cevapla</button>
+        </div>
+        <div class="mail">
+            <h3>Özel Ders</h3>
+            <p>Gönderen: pınarsu1@gmail.com</p>
+            <p>İçerik: İyi günler Hilal Hanım.Yazılım ile ilgili özel ders veriyor musunuz?</p>
+            <button class="response-button">Cevapla</button>
+        </div>
+    </div>
+
+    <div class="back-button-container">
+        <a class="back-button" href="kullanıcı.index sayfası.html">Geri Dön</a>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Email App. All rights reserved.</p>
+    </div>
+</div>
+
+<script>
+    const navButtons = document.querySelectorAll('.nav-button');
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            console.log(button.textContent + " butonuna tıklandı.");
+        });
+    });
+</script>
+<script>
+    const responseButtons = document.querySelectorAll('.response-button');
+    responseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const parentMail = button.parentElement;
+            if (!parentMail.querySelector('.response-form')) {
+                const responseForm = document.createElement('form');
+                responseForm.classList.add('response-form');
+                const responseTextarea = document.createElement('textarea');
+                responseTextarea.setAttribute('placeholder', 'Cevabınızı buraya yazınız...');
+                responseForm.appendChild(responseTextarea);
+                const submitButton = document.createElement('button');
+                submitButton.setAttribute('type', 'submit');
+                submitButton.textContent = 'Gönder';
+                responseForm.appendChild(submitButton);
+                responseForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                responseForm.addEventListener('submit', event => {
+                    event.preventDefault(); 
+                    const responseMessage = responseTextarea.value.trim();
+                    if (responseMessage !== '') {
+                        responseTextarea.value = '';
+                        alert('Cevabınız başarıyla gönderildi!');
+                    }
+                });
+            } else {
+                alert('Zaten bir cevap formu var.');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
